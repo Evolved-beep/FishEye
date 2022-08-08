@@ -1,1 +1,6 @@
-//Mettre le code JavaScript lié à la page photographer.html
+import photographerFactory from "../factories/photographer.js"
+
+const photographerId = new URL(location.href).searchParams.get("id");
+
+
+blabla()
