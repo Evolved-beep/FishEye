@@ -1,39 +1,45 @@
 export default function photographerFactory(data) {
     const { name, id, portrait, tagline, city, country, price } = data;
 
+    class Photographer {
+        constructor(data){
+            this.name = data.name,
+            this.country = data.country,
+            this.city = data.city,
+            this.tagline = data.tagline,
+            this.price = data.price,
+            this.id = data.id
+
+        }
+    }
+
     const picture = `assets/photographers/${portrait}`;
-
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const clique = document.createElement("a");
-        clique.setAttribute("href", "photographer.html" + `?id=${id}`)
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
-        img.setAttribute("alt", "Portrait des photographes")
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        const place = document.createElement("h3")
-        place.textContent = `${city}, ${country}` 
-        const devise = document.createElement('p');
-        devise.setAttribute("class", "slogan")
-        devise.textContent = tagline
-        const prix = document.createElement('p');
-        prix.setAttribute("class", "tarif");
-        prix.textContent = `${price}€/jour`;
-        clique.appendChild(img);
-        clique.appendChild(h2)
-        article.appendChild(clique);
-        article.appendChild(place);
-        article.appendChild(devise);
-        article.appendChild(prix)
-        return (article);
-    }
+        return    `
+                <article>
+                    <a href="photographer.html?id=${this.id}">
+                        <img src ="${picture}" alt="Portrait de photographe">
+                        <h2>${this.name}</h2>
+                    </a>
+                    <h3>${this.country}, ${this.city}</h3>
+                    <p class="slogan">${this.tagline}</p>
+                    <p class="tarif">${this.price}€/jour</p>
+                </article>
+                `
+                
+       }
+    
+       function getPhotographCard(){
+        return `
+        <div class="Photograph_detail">
+            <h2>${this.name}</h2>
+            <h3>${this.country}, ${this.city}</h3>
+            <p>${this.tagline}</p>
+        </div>
+        <img src="${picture}" alt="Portait du photographe">
+        `
+       }
 
-    function getPhotographCard(){
-        const blab = document.createElement('h1');
-        blab.textContent = name
-        return(blab)
-
-    }
-    return { name, id, picture, tagline, city, country, price, getUserCardDOM, getPhotographCard}
+    
+    return { name, id, picture, tagline, city, country, price, getUserCardDOM,getPhotographCard}
 }
