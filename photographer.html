@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,20 +10,45 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" tabindex="1">
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" aria-label="Contact Me" onclick="openModal()" tabindex="3">Contactez-moi</button>
+      </div>
+      <div class="photograph_select">
+        <label for="choix" id="tri">Trier par</label>
+            <select name="tri" id="choix" aria-label="Order by" tabindex="5">
+                <option value="Popularité">Popularité</option>
+                <option value="Date">Date</option>
+                <option value="Titre">Titre</option>
+            </select>
       </div>
       <div class="media_container"></div>
+      <section class="sum_container">
+        <div class="total_container">
+          <span></span>
+          <i class="fa-solid fa-heart heart" aria-label="likes"></i>
+        </div>
+        <p class="prix"></p>
+      </section>
+      <div id="lightbox_container" aria-label="image closeup view">
+        <div id="lightbox">
+        <div class="media_container_lightbox"></div>
+        <p class="titre"></p>
+        <i class="fa-solid fa-chevron-left" id="g" aria-label="Previous image" tabindex="8"></i>
+        <i class="fa-solid fa-chevron-right" id="d" aria-label="Next image" tabindex="7"></i>
+        <i class="fa-solid fa-xmark" id="cross" aria-label="Close dialog" tabindex="6"></i>
+        </div>
+    </div>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close Contact form" />
         </header>
+        <p class="name"></p>
             <form 
             name="reserve"
             action="photographer.html"
@@ -36,7 +61,9 @@
                   <input
                   type="text" 
                   name="prenom" 
-                  id="prenom"/>
+                  id="prenom"
+                  aria-label="First name"
+                  />
               </div>
                 <div class="input_container">
                   <label 
@@ -44,7 +71,9 @@
                   <input 
                   type="text" 
                   name="nom" 
-                  id="nom"/>
+                  id="nom"
+                  aria-label="Last name"
+                  />
               </div>
                 <div class="input_container">
                   <label 
@@ -52,17 +81,23 @@
                   <input 
                   type="email" 
                   name="email" 
-                  id="email"/>
+                  id="email"
+                  aria-label="Email"
+                  />
               </div>
                 <div class="input_container">
                   <label for="commentaire">Votre message</label>
-                <textarea name="commentaire" id="commentaire"></textarea>
+                <textarea 
+                name="commentaire"
+                id="commentaire"
+                aria-label="Your message"
+                ></textarea>
               </div>
               </div>
-              <button class="contact_button" type="submit">Envoyer</button>
-            </div>
-          </form>
-        </div>
+              <button class="contact_button" type="submit" aria-label="Send">Envoyer</button>
+            </form>
+      </div>
+    </div>
     <script type="module" src="/scripts/factories/media.js"></script>
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>

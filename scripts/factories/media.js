@@ -1,46 +1,64 @@
-export default function MediaFactory(data){
-    const {id,photographId,title,image,likes,date,price} = data;
-    const {name} = data
-    
-    class PhotographerMedia {
-        constructor(data){
-            this.id = data.id,
-            this.photographId = data.photographId,
-            this.title = data.title,
-            this.image = data.image,
-            this.likes = data.likes,
-            this.date = data.date,
-            this.price = data.price
+export class MediaFactory {
+    constructor(data) {
+        if (data.hasOwnProperty('image')) {
+            return new Image(data)
+        } else if (data.hasOwnProperty('video')) {
+            return new Video(data)
+        } else {
+            throw 'Unknown type format'
         }
-    }  
-    const picture = `assets/photographers-image/${image}`; 
-    
-    function getMedia(){
+    }
+
+ }
+
+class Image {
+    constructor(data){
+        this.title = data.title,
+        this.likes = data.likes,
+        this.photographerId = data.photographerId,
+        this.image = data.image
+    }
+    getMedia(){
         return `
                     <article>
-                            <a>
-                                <img src="${picture}">
-                            </a>
-                            <div class="description">
-                                <h2>${this.title}</h2>
-                                <div class="compteur">
-                                    <p class="like">${this.likes}</p>
-                                    <i class="fa-solid fa-heart icon"></i>
-                                </div>
+                    <img id="easy" src="../../assets/${this.photographerId}/${this.image}" aria-label="${this.title}" tabindex="6">
+                        <div class="description">
+                            <h2 class="title">${this.title}</h2>
+                            <div class="compteur" tabindex="6">
+                                <p class="like">${this.likes}</p>
+                                <i class="fa-solid fa-heart icon"></i>
+                            </div>
                         </div>
                     </article>
                     `
 
     }
-
-    function getLightbox(){
-        return `
-        <div class="container">
-        <i class="fa-solid fa-chevron-left"></i>
-        <i class="fa-solid fa-chevron-right"></i>
-        </div>
-        `
-    }
-
-    return {id, photographId, title, image, likes, date, price, name, picture, getMedia, getLightbox}
+    
 }
+class Video {
+    constructor(data) {
+        this.title = data.title,
+        this.likes = data.likes,
+        this.video = data.video,
+        this.photographerId = data.photographerId
+    }
+    getMedia(){
+        return `
+                    <article>
+                        <video width="300" id="easy" aria-label="${this.title}" tabindex="6" controls>
+                        <source src="../../assets/${this.photographerId}/${this.video}" type="video/mp4">
+                        </video>
+                        <div class="description">
+                            <h2 class="title">${this.title}</h2>
+                            <div class="compteur" tabindex="6">
+                                <p class="like">${this.likes}</p>
+                                <i class="fa-solid fa-heart icon"></i>
+                            </div>
+                        </div>
+                    </article>
+                    `
+
+    }
+}
+
+ 

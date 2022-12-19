@@ -117,7 +117,8 @@
 			"video": "Art_Wooden_Horse_Sculpture.mp4",
 			"likes": 24,
 			"date": "2011-12-08",
-			"price": 100
+			"price": 100,
+			"type": "video"
 		  },
 		{
 			"id": 7502053,

@@ -17,8 +17,8 @@ export default function photographerFactory(data) {
     function getUserCardDOM() {
         return    `
                 <article>
-                    <a href="photographer.html?id=${this.id}">
-                        <img src ="${picture}" alt="Portrait de photographe">
+                    <a href="photographer.html?id=${this.id}" aria-label="${this.name}">
+                        <img src ="${picture}">
                         <h2>${this.name}</h2>
                     </a>
                     <h3>${this.country}, ${this.city}</h3>
@@ -31,12 +31,12 @@ export default function photographerFactory(data) {
     
        function getPhotographCard(){
         return `
-        <div class="Photograph_detail">
+        <div class="Photograph_detail" tabindex="2">
             <h2>${this.name}</h2>
             <h3>${this.country}, ${this.city}</h3>
             <p>${this.tagline}</p>
         </div>
-        <img src="${picture}" alt="Portait du photographe">
+        <img src="${picture}" aria-label="${this.name}" tabindex="4">
         `
        }
 
