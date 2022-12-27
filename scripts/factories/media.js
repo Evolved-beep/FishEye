@@ -21,7 +21,7 @@ class Image {
     getMedia(){
         return `
                     <article>
-                    <img id="easy" src="../../assets/${this.photographerId}/${this.image}" aria-label="${this.title}" tabindex="6">
+                    <img id="easy" src="../../assets/${this.photographerId}/${this.image}" aria-label="${this.title}" alt="${this.title} "tabindex="6">
                         <div class="description">
                             <h2 class="title">${this.title}</h2>
                             <div class="compteur" tabindex="6">
@@ -46,7 +46,7 @@ class Video {
         return `
                     <article>
                         <video width="300" id="easy" aria-label="${this.title}" tabindex="6" controls>
-                        <source src="../../assets/${this.photographerId}/${this.video}" type="video/mp4">
+                        <source src="../../assets/${this.photographerId}/${this.video}" type="video/mp4" alt="${this.title}">
                         </video>
                         <div class="description">
                             <h2 class="title">${this.title}</h2>

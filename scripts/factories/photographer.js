@@ -36,7 +36,7 @@ export default function photographerFactory(data) {
             <h3>${this.country}, ${this.city}</h3>
             <p>${this.tagline}</p>
         </div>
-        <img src="${picture}" aria-label="${this.name}" tabindex="4">
+        <img src="${picture}" aria-label="${this.name}" alt="${this.name} "tabindex="4">
         `
        }
 
