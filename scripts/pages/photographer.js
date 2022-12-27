@@ -65,7 +65,7 @@ const lightboxModel = () => {
   });
 
   cross.addEventListener("keyup", e => {
-      if(e.key === "Escape"){
+      if(e.key === "Enter"){
         modal.style.display = "none"
       }
 
@@ -86,7 +86,7 @@ const lightboxModel = () => {
   });
 
   next.addEventListener("keyup", e => {
-    if(e.key === "ArrowRight"){
+    if(e.key === "Enter"){
       if(count === article.length -1){
         count = -1;
       }
@@ -117,7 +117,7 @@ const lightboxModel = () => {
   })
 
   prev.addEventListener("keyup", e => {
-    if(e.key === "ArrowLeft"){
+    if(e.key === "Enter"){
       if(count === 0){
         count = article.length
       }

@@ -18,7 +18,7 @@ export default function photographerFactory(data) {
         return    `
                 <article>
                     <a href="photographer.html?id=${this.id}" aria-label="${this.name}">
-                        <img src ="${picture}">
+                        <img src ="${picture}" alt="${this.name}">
                         <h2>${this.name}</h2>
                     </a>
                     <h3>${this.country}, ${this.city}</h3>

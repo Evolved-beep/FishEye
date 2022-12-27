@@ -57,8 +57,5 @@ class Video {
                         </div>
                     </article>
                     `
-
     }
 }
-
- 
